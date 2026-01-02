@@ -1,12 +1,12 @@
 import React from 'react'
 import Navbar from '../../components/layout/Navbar'
 
-const Profile = () => {
+const Prediction = () => {
   return (
     <div>
-      <Navbar />
+        <Navbar />
     </div>
   )
 }
 
-export default Profile
+export default Prediction

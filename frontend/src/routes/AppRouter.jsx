@@ -5,6 +5,7 @@ import Profile from '../pages/profile/Profile'
 import NotFound from '../pages/not-found/NotFound'
 import Login from '../pages/auth/Login'
 import Register from '../pages/auth/Register'
+import Prediction from '../pages/prediction/Prediction'
 
 const AppRouter = () => {
   return (
@@ -13,6 +14,7 @@ const AppRouter = () => {
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
       <Route path='/profile' element={<Profile />} />
+      <Route path='/prediction' element={<Prediction />} />
 
       <Route path='*' element={<NotFound />} />
     </Routes>
