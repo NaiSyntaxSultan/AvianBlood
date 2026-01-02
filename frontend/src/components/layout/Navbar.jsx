@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <div
-      className="bg-white w-full h-16 border-b border-[#B1CCFF] flex items-center 
+      className="sticky top-0 z-50 bg-white w-full h-16 border-b border-[#B1CCFF] flex items-center 
         justify-around"
     >
       {/* Logo */}
