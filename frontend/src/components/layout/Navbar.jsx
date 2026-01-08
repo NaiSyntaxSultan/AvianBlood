@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <div
       className="sticky top-0 z-50 bg-white w-full h-16 border-b border-[#B1CCFF] flex items-center 
-        justify-around"
+        justify-around space-x-96"
     >
       {/* Logo */}
       <Link to="/">
@@ -35,18 +35,6 @@ const Navbar = () => {
           className={`transition-colors ${getLinkClass("/prediction")}`}
         >
           Prediction
-        </Link>
-        <Link
-          to="/dashboard"
-          className={`transition-colors ${getLinkClass("/dashboard")}`}
-        >
-          Dashboard
-        </Link>
-        <Link
-          to="/database"
-          className={`transition-colors ${getLinkClass("/database")}`}
-        >
-          Database
         </Link>
       </div>
       {/* Profile */}
