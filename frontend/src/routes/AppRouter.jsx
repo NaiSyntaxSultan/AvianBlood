@@ -5,6 +5,7 @@ import Profile from '../pages/profile/Profile'
 import NotFound from '../pages/not-found/NotFound'
 import Login from '../pages/auth/Login'
 import Register from '../pages/auth/Register'
+import PredictionResult from '../pages/prediction/PredictionResult'
 import Prediction from '../pages/prediction/Prediction'
 import ManageUsers from '../pages/admins/ManageUsers'
 import ManageData from '../pages/admins/ManageData'
@@ -17,7 +18,10 @@ const AppRouter = () => {
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
       <Route path='/profile' element={<Profile />} />
+
+      {/* Predict */}
       <Route path='/prediction' element={<Prediction />} />
+      <Route path='/result' element={<PredictionResult />} />
 
       {/* Admins */}
       <Route path='/dashboard' element={<Dashboard />} />
