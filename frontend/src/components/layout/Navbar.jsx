@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/Logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { Globe } from "lucide-react";
 
-const Navbar = () => {
+const Navbar = ({ role }) => {
   const location = useLocation();
 
   const getLinkClass = (path) => {
@@ -12,7 +12,7 @@ const Navbar = () => {
       : "text-gray-700 hover:text-blue-600 font-semibold"; // Inactive Style
   };
 
-  return (
+  return role ? (
     <div
       className="sticky top-0 z-50 bg-white w-full h-16 border-b border-[#B1CCFF] flex items-center 
         justify-around space-x-96"
@@ -55,7 +55,56 @@ const Navbar = () => {
         </Link>
       </div>
     </div>
-  );
+  ) : (
+    <div
+      className="sticky top-0 z-50 bg-white w-full h-16 border-b border-[#B1CCFF] flex items-center 
+        justify-around space-x-96"
+    >
+      {/* Logo */}
+      <Link to="/dashboard">
+        <img
+          src={logo}
+          width={50}
+          className="hover:scale-105 transition-transform"
+        />
+      </Link>
+      {/* Link */}
+      <div className="space-x-6 text-md">
+        <Link to="/dashboard" className={`transition-colors ${getLinkClass("/dashboard")}`}>
+          Dashboard
+        </Link>
+        <Link
+          to="/manageusers"
+          className={`transition-colors ${getLinkClass("/manageusers")}`}
+        >
+          User Management
+        </Link>
+        <Link
+          to="/managedata"
+          className={`transition-colors ${getLinkClass("/managedata")}`}
+        >
+          Data Management
+        </Link>
+      </div>
+      {/* Profile */}
+      <div className="flex items-center space-x-4">
+        <button className="text-black hover:text-gray-600 transition-colors">
+          <Globe size={18} />
+        </button>
+
+        <Link
+          to="/profile"
+          className="w-[41px] h-[41px] rounded-full bg-[#C2E4FB]
+            overflow-hidden border border-blue-100 shadow-sm cursor-pointer"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/48/Outdoors-man-portrait_%28cropped%29.jpg"
+            className="w-full h-full object-cover"
+          />
+        </Link>
+      </div>
+    </div>
+  )
 };
 
 export default Navbar;

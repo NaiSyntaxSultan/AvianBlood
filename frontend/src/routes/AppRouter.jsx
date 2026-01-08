@@ -6,6 +6,9 @@ import NotFound from '../pages/not-found/NotFound'
 import Login from '../pages/auth/Login'
 import Register from '../pages/auth/Register'
 import Prediction from '../pages/prediction/Prediction'
+import ManageUsers from '../pages/admins/ManageUsers'
+import ManageData from '../pages/admins/ManageData'
+import Dashboard from '../pages/admins/Dashboard'
 
 const AppRouter = () => {
   return (
@@ -15,6 +18,11 @@ const AppRouter = () => {
       <Route path='/register' element={<Register />} />
       <Route path='/profile' element={<Profile />} />
       <Route path='/prediction' element={<Prediction />} />
+
+      {/* Admins */}
+      <Route path='/dashboard' element={<Dashboard />} />
+      <Route path='/manageusers' element={<ManageUsers />} />
+      <Route path='/managedata' element={<ManageData />} />
 
       <Route path='*' element={<NotFound />} />
     </Routes>

@@ -7,7 +7,7 @@ import Footer from "../../components/layout/Footer";
 const Home = () => {
   return (
     <div className="bg-[linear-gradient(180deg,#9AD1F0_3%,#FFFFFF_20%)]">
-      <Navbar />
+      <Navbar role={true} />
 
       <div className="mt-4 flex flex-col items-center justify-center text-center">
         <img src={logo} width={110} />

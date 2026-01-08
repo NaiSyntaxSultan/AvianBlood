@@ -5,8 +5,8 @@ import Footer from "../../components/layout/Footer";
 
 const Profile = () => {
   return (
-    <div>
-      <Navbar />
+    <div className="bg-[linear-gradient(180deg,#9AD1F0_3%,#FFFFFF_20%)]">
+      <Navbar role={true} />
 
       <div className="w-[1160px] bg-white rounded-[32px] mt-8 mb-8 mx-auto shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] overflow-hidden">
         {/* ส่วน Banner ด้านบน */}

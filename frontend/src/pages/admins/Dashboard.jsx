@@ -1,12 +1,12 @@
 import React from 'react'
 import Navbar from '../../components/layout/Navbar'
 
-const Prediction = () => {
+const Dashboard = () => {
   return (
     <div>
-        <Navbar role={true} />
+      <Navbar />
     </div>
   )
 }
 
-export default Prediction
+export default Dashboard
