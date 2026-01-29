@@ -10,14 +10,22 @@ import Prediction from '../pages/prediction/Prediction'
 import ManageUsers from '../pages/admins/ManageUsers'
 import ManageData from '../pages/admins/ManageData'
 import Dashboard from '../pages/admins/Dashboard'
+import Upload from '../pages/upload/Upload'
+import Info from '../pages/info/Info'
 
 const AppRouter = () => {
   return (
     <Routes>
+
+      <Route path='/info' element={<Info />} />
+
       <Route path='/' element={<Home />} />
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
       <Route path='/profile' element={<Profile />} />
+
+      {/* Upload */}
+      <Route path='/upload' element={<Upload />} />
 
       {/* Predict */}
       <Route path='/prediction' element={<Prediction />} />

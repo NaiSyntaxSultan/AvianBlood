@@ -18,7 +18,7 @@ const Prediction = () => {
         const isDuplicate = selectedImages.some(
           (existingImg) =>
             existingImg.file.name === newFile.name &&
-            existingImg.file.size === newFile.size
+            existingImg.file.size === newFile.size,
         );
         return !isDuplicate;
       });
@@ -73,12 +73,12 @@ const Prediction = () => {
       return;
     }
     // ส่งข้อมูลหรือ State ไปยังหน้า Result ได้ถ้าต้องการ แต่เบื้องต้นสั่งเปลี่ยนหน้าก่อน
-    navigate("/result"); 
+    navigate("/result");
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-[linear-gradient(180deg,#9AD1F0_3%,#FFFFFF_20%)]">
-      <Navbar role={true} />
+      <Navbar role={"user"} />
 
       <div className="flex flex-col items-center py-10 px-4">
         {/* Header Section */}
@@ -90,97 +90,14 @@ const Prediction = () => {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl">
-          
-          {/* === Left Card === */}
-          <div className="bg-white rounded-3xl p-8 shadow-xl flex flex-col h-[600px]">
-            {/* Stain Selection */}
-            <div className="mb-6 flex-shrink-0">
-              <h3 className="font-bold text-black mb-3">Select Stain Type</h3>
-              <div className="flex space-x-4">
-                <button
-                  onClick={() => setSelectedStain("wright")}
-                  className={`flex-1 flex items-center justify-center space-x-3 p-3 rounded-xl border transition-all ${
-                    selectedStain === "wright"
-                      ? "border-blue-500 bg-blue-50 ring-1 ring-blue-500"
-                      : "border-gray-200 hover:bg-gray-50"
-                  }`}
-                >
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white">
-                    <Droplet size={18} fill="white" />
-                  </div>
-                  <span className="font-semibold text-gray-800">Wright Stain</span>
-                </button>
+        <div className="grid grid-cols-1 gap-6 w-full max-w-3xl">
+          <div className="bg-white rounded-3xl p-8 shadow-xl flex flex-col h-[660px]">
 
-                <button
-                  onClick={() => setSelectedStain("giemsa")}
-                  className={`flex-1 flex items-center justify-center space-x-3 p-3 rounded-xl border transition-all ${
-                    selectedStain === "giemsa"
-                      ? "border-purple-500 bg-purple-50 ring-1 ring-purple-500"
-                      : "border-gray-200 hover:bg-gray-50"
-                  }`}
-                >
-                  <div className="w-8 h-8 bg-purple-400 rounded-full flex items-center justify-center text-white">
-                    <Droplet size={18} fill="white" />
-                  </div>
-                  <span className="font-semibold text-gray-800">Giemsa Stain</span>
-                </button>
-              </div>
+            <div className="w-[250px] h-[62px] rounded-xl border border-[#D2D2D2] 
+        shadow-[0_2px_1px_0_rgba(0,0,0,0.25)] flex justify-around items-center bg-white">
+              <div className="opacity-70">Wright Stain</div>
+              <div className="opacity-60">Giemsa Stain</div>
             </div>
-
-            {/* Upload Area */}
-            <input
-              type="file"
-              ref={fileInputRef}
-              onChange={handleImageUpload}
-              className="hidden"
-              multiple
-              accept=".jpg,.jpeg,.png"
-            />
-            <div
-              onClick={triggerFileInput}
-              onDragOver={onDragOver}
-              onDragLeave={onDragLeave}
-              onDrop={onDrop}
-              className={`flex-1 border-2 border-dashed rounded-2xl flex flex-col items-center justify-center mb-6 cursor-pointer transition-colors ${
-                isDragging
-                  ? "border-blue-500 bg-blue-50"
-                  : "border-gray-300 bg-gray-100 hover:bg-gray-200"
-              }`}
-            >
-              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-3 shadow-md">
-                <Upload className="text-white" size={24} />
-              </div>
-              <p className="font-bold text-gray-800">
-                {isDragging ? "Drop images here" : "Upload Image"}
-              </p>
-              <p className="text-sm text-gray-500">
-                Support: .jpg, .png (max 1 MB)
-              </p>
-              {selectedImages.length > 0 && (
-                <p className="text-blue-600 text-sm mt-2 font-semibold">
-                  {selectedImages.length} images selected
-                </p>
-              )}
-            </div>
-
-            {/* 3. Predict Button (แก้ไข onClick) */}
-            <button
-              onClick={handlePredict}
-              className="flex-shrink-0 w-full bg-gray-500 hover:bg-gray-600 text-white font-bold py-4 rounded-xl shadow-lg flex items-center justify-center space-x-2 transition-transform active:scale-95"
-            >
-              <Sparkles size={20} />
-              <span className="text-lg">
-                {selectedImages.length > 0
-                  ? `Predict All (${selectedImages.length})`
-                  : "Predict"}
-              </span>
-            </button>
-          </div>
-
-          {/* === Right Card === */}
-          <div className="bg-white rounded-3xl p-8 shadow-xl flex flex-col h-[600px]">
-            <h3 className="font-bold text-black mb-4 flex-shrink-0">Results</h3>
 
             {selectedImages.length === 0 ? (
               <div className="flex-1 flex flex-col items-center justify-center">
@@ -217,6 +134,17 @@ const Prediction = () => {
                 </div>
               </div>
             )}
+            <button
+              onClick={handlePredict}
+              className="flex-shrink-0 w-full bg-gray-500 hover:bg-gray-600 text-white font-bold py-4 rounded-xl shadow-lg flex items-center justify-center space-x-2 transition-transform active:scale-95"
+            >
+              <Sparkles size={20} />
+              <span className="text-lg">
+                {selectedImages.length > 0
+                  ? `Predict All (${selectedImages.length})`
+                  : "Predict"}
+              </span>
+            </button>
           </div>
         </div>
       </div>

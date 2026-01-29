@@ -18,7 +18,7 @@ const PostCard = () => {
 
   return (
     <div
-      className="bg-white max-w-[1160px] w-full rounded-3xl mb-6 mx-auto
+      className="bg-white max-w-[750px] w-full rounded-3xl mb-6 mx-auto
         shadow-[0_4px_8px_0_rgba(0,0,0,0.25)] overflow-hidden"
     >
       {/* Header Section */}

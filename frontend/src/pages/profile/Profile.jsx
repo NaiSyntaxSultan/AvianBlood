@@ -6,11 +6,11 @@ import Footer from "../../components/layout/Footer";
 const Profile = () => {
   return (
     <div className="bg-[linear-gradient(180deg,#9AD1F0_3%,#FFFFFF_20%)]">
-      <Navbar role={true} />
+      <Navbar role={"user"} />
 
-      <div className="w-[1160px] bg-white rounded-[32px] mt-8 mb-8 mx-auto shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] overflow-hidden">
+      <div className="w-[750px] bg-white rounded-[32px] mt-8 mb-8 mx-auto shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] overflow-hidden">
         {/* ส่วน Banner ด้านบน */}
-        <div className="w-full h-[230px] bg-gradient-to-r from-[#F2D076] to-[#FA7107]"></div>
+        <div className="w-full h-[230px] bg-gradient-to-r from-[#0b5264] to-[#0762da]"></div>
 
         {/* ส่วนเนื้อหาด้านล่าง */}
         <div className="px-10 pb-10">
